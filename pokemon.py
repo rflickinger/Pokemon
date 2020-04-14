@@ -25,6 +25,16 @@ class Pokemon:
             self.current_health = self.current_health - dmg
             print(f"{self.name} took {dmg} damage.")
     
+    #Method to gain health
+    def gain_health(self, amount):
+        difference = self.max_health - self.current_health
+        if amount >= difference:
+            self.current_health = self.max_health
+            print(f"{self.name} gained {difference} HP!")
+        else:
+            self.current_health = self.current_health + amount
+            print(f"{self.name} gained {amount} HP!")
+    
 
 
 
