@@ -1,4 +1,6 @@
 class Pokemon:
+    #Type advantage dictionary. Dictionary reads as self --> victim
+    type_matchups = {["Fire", "Fire"]: 1.0, ["Fire", "Grass"]: 2.0, ["Fire", "Water"]: 0.5, ["Water", "Fire"]: 2.0, ["Water", "Grass"]: 0.5, ["Water", "Water"]: 1.0, ["Grass", "Fire"]: 0.5, ["Grass", "Grass"]: 1.0, ["Grass", "Water"]: 2.0}
     def __init__(self, name, level, type, max_health, current_health, ko):
         self.name = name                     #str name
         self.level = level                   #int level
@@ -50,10 +52,10 @@ class Pokemon:
         attack_damage = attack_damage * type_matchups.get([self.type, victim.type])
         dmg_to_return = round(attack_damage)
         print(f"{self.name} attacked {victim.name}!")
+        if type_matchups
         victim.lose_health(dmg_to_return)
         
-    #Type advantage dictionary. Dictionary reads as self --> victim
-    type_matchups = {["Fire", "Fire"]: 1.0, ["Fire", "Grass"]: 2.0, ["Fire", "Water"]: 0.5, ["Water", "Fire"]: 2.0, ["Water", "Grass"]: 0.5, ["Water", "Water"]: 1.0, ["Grass", "Fire"]: 0.5, ["Grass", "Grass"]: 1.0, ["Grass", "Water"]: 2.0}
+   
 
 
 
