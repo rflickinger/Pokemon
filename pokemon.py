@@ -52,10 +52,8 @@ class Pokemon:
         attack_damage = attack_damage * type_matchups.get([self.type, victim.type])
         dmg_to_return = round(attack_damage)
         print(f"{self.name} attacked {victim.name}!")
-        if type_matchups
+        if type_matchups.get([self.type, vicitim.type]) == 2.0:
+            print("The attack was super effective!")
+        elif: type_matchups.get([self.type, vicitim.type]) == 0.5:
+            print("The attack was not very effective...")
         victim.lose_health(dmg_to_return)
-        
-   
-
-
-
