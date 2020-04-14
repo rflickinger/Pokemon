@@ -28,10 +28,10 @@ class Pokemon:
         difference = self.max_health - self.current_health
         if amount >= difference:
             self.current_health = self.max_health
-            print(f"{self.name} gained {difference} HP!")
+            print(f"{self.name} gained {difference} HP! {self.name} is fully healed!")
         else:
             self.current_health = self.current_health + amount
-            print(f"{self.name} gained {amount} HP!")
+            print(f"{self.name} gained {amount} HP! Total {self.current_health}")
     
     #Method to knock out a pokemon
     def knock_out(self):
@@ -41,8 +41,19 @@ class Pokemon:
     #Method to revive a pokemon
     def revive(self):
         self.ko = False
+        self.current_health = 1
         print(f"{self.name} has been revived!")
-     
+    
+    #Method to attack
+    def attack(self, victim):
+        attack_damage = 0.0 + self.level
+        attack_damage = attack_damage * type_matchups.get([self.type, victim.type])
+        dmg_to_return = round(attack_damage)
+        print(f"{self.name} attacked {victim.name}!")
+        victim.lose_health(dmg_to_return)
+        
+    #Type advantage dictionary. Dictionary reads as self --> victim
+    type_matchups = {["Fire", "Fire"]: 1.0, ["Fire", "Grass"]: 2.0, ["Fire", "Water"]: 0.5, ["Water", "Fire"]: 2.0, ["Water", "Grass"]: 0.5, ["Water", "Water"]: 1.0, ["Grass", "Fire"]: 0.5, ["Grass", "Grass"]: 1.0, ["Grass", "Water"]: 2.0}
 
 
 
