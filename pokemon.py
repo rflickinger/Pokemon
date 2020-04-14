@@ -13,14 +13,12 @@ class Pokemon:
     def lose_health(self, dmg):
         if dmg > self.current_health:
             self.current_health = 0
-            self.ko = True                   #Possibly change this to a method
             print(f"Massive hit! {self.name} took {self.current_health} damage!")
-            print(f"{self.name} has fainted.")#If ko is changed to a method remove this
+            self.knock_out()
         elif dmg == self.current_health:
             self.current_health = 0
-            self.ko = True
             print(f"{self.name} took {dmg} damage.")
-            print(f"{self.name} has fainted.")
+            self.knock_out()
         else:
             self.current_health = self.current_health - dmg
             print(f"{self.name} took {dmg} damage.")
@@ -35,6 +33,16 @@ class Pokemon:
             self.current_health = self.current_health + amount
             print(f"{self.name} gained {amount} HP!")
     
+    #Method to knock out a pokemon
+    def knock_out(self):
+        self.ko = True
+        print(f"{self.name} has fainted.")
+    
+    #Method to revive a pokemon
+    def revive(self):
+        self.ko = False
+        print(f"{self.name} has been revived!")
+     
 
 
 
