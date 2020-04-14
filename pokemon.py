@@ -1,16 +1,25 @@
 class Pokemon:
-    #Type advantage dictionary. Dictionary reads as self --> victim
-    type_matchups = {["Fire", "Fire"]: 1.0, ["Fire", "Grass"]: 2.0, ["Fire", "Water"]: 0.5, ["Water", "Fire"]: 2.0, ["Water", "Grass"]: 0.5, ["Water", "Water"]: 1.0, ["Grass", "Fire"]: 0.5, ["Grass", "Grass"]: 1.0, ["Grass", "Water"]: 2.0}
     def __init__(self, name, level, type, max_health, current_health, ko):
         self.name = name                     #str name
         self.level = level                   #int level
-        self.pType = type                    #str type ie: water, fire, etc
+        self.type = type                    #str type ie: water, fire, etc
         self.max_health = max_health         #int maximum health
         self.current_health = current_health #int current health
         self.ko = ko                         #bool is knocked out
     def __repr__(self):                      #set object name to pokemon name
         return self.name
-    
+    #tuple list to see if that works
+    fi_fi = ("Fire", "Fire")
+    fi_gr = ("Fire", "Grass")
+    fi_wa = ("Fire", "Water")
+    gr_fi = ("Grass", "Fire")
+    gr_gr = ("Grass", "Grass")
+    gr_wa = ("Grass", "Water")
+    wa_fi = ("Water", "Fire")
+    wa_gr = ("Water", "Grass")
+    wa_wa = ("Water", "Water")
+    #Type advantage dictionary. Dictionary reads as self --> victim
+    matchups = {fi_fi:1.0, fi_gr:2.0, fi_wa:0.5, gr_fi:0.5, gr_gr:1.0, gr_wa:2.0, wa_fi:2.0, wa_gr:0.5, wa_wa:1.0}
     #Method to take damage
     def lose_health(self, dmg):
         if dmg > self.current_health:
@@ -45,15 +54,20 @@ class Pokemon:
         self.ko = False
         self.current_health = 1
         print(f"{self.name} has been revived!")
-    
+
     #Method to attack
     def attack(self, victim):
+        tup = (self.type, victim.type)
         attack_damage = 0.0 + self.level
-        attack_damage = attack_damage * type_matchups.get([self.type, victim.type])
+        attack_damage = attack_damage * self.matchups[tup]
         dmg_to_return = round(attack_damage)
         print(f"{self.name} attacked {victim.name}!")
-        if type_matchups.get([self.type, vicitim.type]) == 2.0:
+        if self.matchups[tup] == 2.0:
             print("The attack was super effective!")
-        elif: type_matchups.get([self.type, vicitim.type]) == 0.5:
+        elif self.matchups[tup] == 0.5:
             print("The attack was not very effective...")
         victim.lose_health(dmg_to_return)
+
+charmander = Pokemon("Charmander", 4, "Fire", 20, 20, False)
+squirtle = Pokemon("Squirtle", 4, "Water", 20, 20, False)
+bulbasaur = Pokemon("Bulbasaur", 4, "Grass", 20, 20, False)
