@@ -68,6 +68,18 @@ class Pokemon:
             print("The attack was not very effective...")
         victim.lose_health(dmg_to_return)
 
+#Creating Pokemon and other useful tools to make it easier to create teams
+
+
 charmander = Pokemon("Charmander", 4, "Fire", 20, 20, False)
 squirtle = Pokemon("Squirtle", 4, "Water", 20, 20, False)
 bulbasaur = Pokemon("Bulbasaur", 4, "Grass", 20, 20, False)
+vulpix = Pokemon("Vulpix", 4, "Fire", 20, 20, False)
+Oddish = Pokemon("Oddish", 4, "Grass", 20, 20, False)
+Psyduck = Pokemon("Psyduck", 4, "Water", 20, 20, False)
+Growlithe = Pokemon("Growlithe", 4, "Fire", 20, 20, False)
+Poliwag = Pokemon("Poliwag", 4, "Water", 20, 20, False)
+Bellsprout = Pokemon("Bellsprout", 4, "Grass", 20, 20, False)
+Ponyta = Pokemon("Ponyta", 4, "Fire", 20, 20, False)
+Slowpoke = Pokemon("Slowpoke", 4, "Water", 20, 20, False)
+Exeggcute = Pokemon("Exeggcute", 4, "Grass", 20, 20, False)
