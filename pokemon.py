@@ -7,7 +7,7 @@ class Pokemon:
         self.current_health = current_health #int current health
         self.ko = ko                         #bool is knocked out
     def __repr__(self):                      #set object name to pokemon name
-        return self.name
+        return f"{self.name}, {self.level}, {self.type}, {self.max_health}, {self.current_health}, {self.ko}"
    
     #Method to take damage
     def lose_health(self, dmg):

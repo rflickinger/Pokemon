@@ -11,11 +11,11 @@ class Trainer:
     
     #Heals active pokemon for 20 HP
     def use_potion(self):
-        if self.active.max_health > self.active.current_health:
+        if self.team[self.active].max_health > self.team[self.active].current_health:
             if self.potions >= 1:
                 self.potions = self.potions -1
-                print(f"{self.name} used a potion on {self.active.name}.")
-                self.active.gain_health(20)
+                print(f"{self.name} used a potion on {self.team[self.active].name}.")
+                self.team[self.active].gain_health(20)
             else:
                 print(f"{self.name} is out of potions!")
         else:
@@ -56,7 +56,20 @@ class Trainer:
             i+= 1
         print("Team Created!")
         print(f"You have chosen: {self.team[0].name}, {self.team[1].name}, {self.team[2].name}, {self.team[3].name}, {self.team[4].name}, and {self.team[5]}!")
+
+#Creating trainers and their teams
 ryan = Trainer("Ryan", [], 0, 3)
 ryan.make_team([6, 7, 8, 9, 10, 11])
 gary = Trainer("Gary", [], 0, 3)
 gary.make_team([0, 1, 2, 3, 4, 5])    
+
+#Commence battle testing
+ryan.attack_trainer(gary)
+ryan.attack_trainer(gary)
+ryan.attack_trainer(gary)
+ryan.attack_trainer(gary)
+gary.use_potion()
+ryan.switch(4)
+ryan.attack_trainer(gary)
+ryan.attack_trainer(gary)
+ryan.attack_trainer(gary)
