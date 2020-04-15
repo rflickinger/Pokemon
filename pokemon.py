@@ -8,18 +8,7 @@ class Pokemon:
         self.ko = ko                         #bool is knocked out
     def __repr__(self):                      #set object name to pokemon name
         return self.name
-    #tuple list to see if that works
-    fi_fi = ("Fire", "Fire")
-    fi_gr = ("Fire", "Grass")
-    fi_wa = ("Fire", "Water")
-    gr_fi = ("Grass", "Fire")
-    gr_gr = ("Grass", "Grass")
-    gr_wa = ("Grass", "Water")
-    wa_fi = ("Water", "Fire")
-    wa_gr = ("Water", "Grass")
-    wa_wa = ("Water", "Water")
-    #Type advantage dictionary. Dictionary reads as self --> victim
-    matchups = {fi_fi:1.0, fi_gr:2.0, fi_wa:0.5, gr_fi:0.5, gr_gr:1.0, gr_wa:2.0, wa_fi:2.0, wa_gr:0.5, wa_wa:1.0}
+   
     #Method to take damage
     def lose_health(self, dmg):
         if dmg > self.current_health:
@@ -54,7 +43,18 @@ class Pokemon:
         self.ko = False
         self.current_health = 1
         print(f"{self.name} has been revived!")
-
+    #tuple list to see if that works
+    fi_fi = ("Fire", "Fire")
+    fi_gr = ("Fire", "Grass")
+    fi_wa = ("Fire", "Water")
+    gr_fi = ("Grass", "Fire")
+    gr_gr = ("Grass", "Grass")
+    gr_wa = ("Grass", "Water")
+    wa_fi = ("Water", "Fire")
+    wa_gr = ("Water", "Grass")
+    wa_wa = ("Water", "Water")
+    #Type advantage dictionary. Dictionary reads as self --> victim
+    matchups = {fi_fi:1.0, fi_gr:2.0, fi_wa:0.5, gr_fi:0.5, gr_gr:1.0, gr_wa:2.0, wa_fi:2.0, wa_gr:0.5, wa_wa:1.0}
     #Method to attack
     def attack(self, victim):
         tup = (self.type, victim.type)
