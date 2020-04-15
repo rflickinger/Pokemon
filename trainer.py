@@ -7,7 +7,7 @@ class Trainer:
         self.active = active
         self.potions = potions
     def __repr__(self):
-        return self.name
+        return f"Name: {self.name}\nPokemon:\n{self.team[0]}\n{self.team[1]}\n{self.team[2]}\n{self.team[4]}\n{self.team[5]}\nCurrently selected Pokemon is {self.team[self.active]}\nPotions: {self.potions}"
     
     #Heals active pokemon for 20 HP
     def use_potion(self):
@@ -62,14 +62,23 @@ ryan = Trainer("Ryan", [], 0, 3)
 ryan.make_team([6, 7, 8, 9, 10, 11])
 gary = Trainer("Gary", [], 0, 3)
 gary.make_team([0, 1, 2, 3, 4, 5])    
+print(ryan)
+# #Set up user trainer
+# user_name = input("Hello Trainer! What is your name?")
+# user_choices = []
+# iterato = 0
+# while iterato > 6
+#     user_choices.append(int(input("Please enter your Pokemon value, check the README for instructions!")))
+#     iterato += 1
+# print(f"Thanks {user_name}, one moment while we collect your Pokemon!")
+# user_trainer = Trainer(user_name, [], 0, 3)
+# user_trainer.make_team(user_choices)
 
-#Commence battle testing
-ryan.attack_trainer(gary)
-ryan.attack_trainer(gary)
-ryan.attack_trainer(gary)
-ryan.attack_trainer(gary)
-gary.use_potion()
-ryan.switch(4)
-ryan.attack_trainer(gary)
-ryan.attack_trainer(gary)
-ryan.attack_trainer(gary)
+# #Choose trainer to battle
+# trainer_choice = input("Great! Who would you like to battle? Enter \"Ryan\" or \"Gary\". Be careful, this is case sensitive!")
+# chosen_trainer = 0
+# if trainer_choice = "Ryan":
+#     chosen_trainer = 1
+#     print("Great choice!")
+
+
