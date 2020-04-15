@@ -30,6 +30,13 @@ class Trainer:
             print(f"{self.team[index].name} has fainted and cannot fight, try again!")
     
     #Trainer's active pokemon attacks other trainer's active pokemon
-  #  def attack_trainer(self, victim):
+    def attack_trainer(self, victim):
+        if self.team[self.active].ko == True:
+            print(f"{self.team[self.active].name} has fainted and cannot battle, switch Pokemon!")
+            return
+        if victim.team[victim.active].ko == True:
+            print(f"{victim.team[victim.active].name} has fainted and cannot battle, switch Pokemon!")
+            return
+        self.team[self.active].attack(victim.team[victim.active])
 
         
